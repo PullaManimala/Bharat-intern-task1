@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temparature Convertor</title>
+    <link rel="stylesheet" href="https://raw.githack.com/programming2007/illustration/main/illustration.min.css">
+    <h1>Temparature Convertor!</h1>
+    <style>
+        .input {
+            border: 2px solid var(--lightblue);
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: black;
+        }
+
+        .lightblue-clr {
+            text-shadow: -20px 9px 3px ;
+        }
+
+        @media screen and (max-width: 650px) {
+            .input {
+                width: 75px;
+            }
+        }
+
+        .e {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="c">
+            <input type="number" id="celsius" value="0" class="input" onchange="celsiusto(this.value)"
+                oninput="celsiusto(this.value)">
+            <div class="lightblue-clr">Celsius</div>
+
+        </div>
+        <div class="e">&equals;</div>
+        <div class="f">
+            <input type="number" id="fahrenhait" value="32" class="input" onchange="fahrenhaito(this.value)"
+                oninput="fahrenhaito(this.value)">
+            <div class="lightblue-clr">Fahrenheit</div>
+        </div>
+        <div class="e">&equals;</div>
+        <div class="k">
+            <input type="number" id="kelvin" value="273.15" class="input" onchange="kelvinto(this.value)"
+                oninput="kelvinto(this.value)">
+            <div class="lightblue-clr">Kelvin</div>
+        </div>
+
+
+    </div>
+    <script>
+        let f = document.getElementById("fahrenhait")
+        let k = document.getElementById("kelvin")
+        let c = document.getElementById("celsius")
+        function celsiusto(e) {
+            e = parseFloat(e)
+            f.value = (e * 9 / 5) + 32
+            k.value = e + 273.15
+        }
+
+        function fahrenhaito(e) {
+            e = parseFloat(e)
+            c.value = (e - 32) * 5 / 9
+            k.value = (e - 32) * 5 / 9 + 273.15
+        }
+
+        function kelvinto(e) {
+            e = parseFloat(e)
+            c.value = e - 273.15
+            f.value = (e - 273.15) * 9 / 5 + 32
+        }
+
+    </script>
+
+</body>
+
+</html>
